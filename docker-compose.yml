@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+  backend:
+    container_name: coconutcheck_nodejs
+    image: node-server
+    restart: unless-stopped
+    volumes:
+      - ./backend:/usr/src/server
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    build: 
+      context: ./backend
+      target: "server-build"
+
+  db:
+    container_name: coconutcheck_postgres
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=coconutcheck
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=123456
+    volumes:
+      - ./database:/postgres-data:/var/lib/postgresql
+      - ./database:/postgres-init/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  frontend:
+    container_name: coconutcheck_vue
+    image: vue-fontend
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src:/usr/src
+    build: 
+      target: "fontend-build"  

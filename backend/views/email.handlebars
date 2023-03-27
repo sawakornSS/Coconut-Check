@@ -1,0 +1,43 @@
+{{!--  email.handlebars --}}
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  .details{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 900px;
+  }
+  h2{
+    margin-left: 30px;
+    margin-top: 15px;
+  }
+ 
+</style>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Welcome Email</title>
+</head>
+<body>
+  <p>เรียน ผู้เข้าร่วมกิจกรรม “{{name}}” เมื่อวันที่ {{startDate}} - {{endDate}} เวลา {{startTime}} - {{endTime}} น. </p>
+  <p>วัตถุประสงค์ของอีเมลนี้ เพื่อแจ้งการเข้าร่วมกิจกรรมของท่าน และใช้สำหรับเป็นหลักฐานในการแสดงถึงความมีส่วนร่วมในกิจกรรมของท่าน </p>
+  <div class="details">
+    <h2>มีรายละเอียดกิจจกรมดังนี้</h2>
+    <ul>
+      <li>ชื่อกิจกรรม : {{name}}</li>
+      <li>สภานที่ : {{palce}}</li>
+      <li>ชื่อผู้สร้างกิจกรรม : {{owner}}</li>
+      <li>วันที่ :  {{startDate}} - {{endDate}}</li>
+      <li>เวลา : {{startTime}} - {{endTime}} น.</li>
+    </ul>  
+  </div>
+  <br>
+    <p>ขอขอบคุณในการเข้าร่วมกิจกรรมในครั้งนี้</p>
+  <hr>
+    <p>ขอแสดงความนับถือ</p>
+    <p>Software Engineering Buu</p>
+</body>
+
+</html>
+
